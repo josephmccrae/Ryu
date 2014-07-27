@@ -25,17 +25,29 @@ $(document).ready(function() {
     $('.ryu-throwing').hide();
     $('.ryu-ready').show();
   })
-    
-    $('.ryu-cool').keydown(function() {
-        alert("handler for.keydown() called");
-    });
-    
 });
   
-    
 
 function playHadouken () {
   $('#hadouken-sound')[0].volume = 0.5;
   $('#hadouken-sound')[0].load();
   $('#hadouken-sound')[0].play();
 }
+
+$(document).keydown(function(x) {
+    if(x.keyCode == 88) {
+      $('.ryu-cool').show();
+      $('.ryu-ready').hide();
+      $('.ryu-still').hide();
+      $('.ryu-throwing').hide();
+      $('.hadouken').hide();
+      }
+    });
+
+$(document).keyup(function() {
+    $('.ryu-ready').show();
+    $('.ryu-cool').hide();
+    $('.ryu-still').hide();
+    $('.ryu-throwing').hide();
+    $('.hadouken').hide();
+});
